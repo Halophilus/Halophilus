@@ -18,7 +18,7 @@
   </style>
   <!-- Define the filter for the white text glow effect -->
   <defs>
-    <filter id="text-glow" x="-50%" y="-50%" width="200%" height="200%">
+    <filter id="text-glow" x="-50%" y="-50%" width="150%" height="150%">
       <feFlood result="flood" flood-color="white" flood-opacity="1"></feFlood>
       <feComposite in="flood" result="mask" in2="SourceGraphic" operator="in"></feComposite>
       <feMorphology in="mask" result="dilated" operator="dilate" radius="2"></feMorphology>
