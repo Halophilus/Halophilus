@@ -16,7 +16,7 @@
       font-size: 22px;
       fill: white;
       stroke: black;
-      stroke-width: 0.5; /* Adjust stroke-width as needed */
+      stroke-width: 1; /* Adjust stroke-width as needed */
       paint-order: stroke fill;
       filter: url(#text-glow)
     }
