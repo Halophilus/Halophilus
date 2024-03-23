@@ -18,7 +18,6 @@
       stroke: black;
       stroke-width: 1; /* Adjust stroke-width as needed */
       paint-order: stroke fill;
-      filter: url(#text-glow)
     }
     .background { fill: black; }
   </style>
