@@ -11,9 +11,15 @@
       font-weight: bold;
     }
     .highlighted { font-family: 'Roboto Bold'; font-size: 22px; fill: white; }
-    .normal, .shadow { font-family: 'Roboto Bold'; font-size: 22px; }
-    .normal { fill: black; }
-    .shadow { font-family: 'Roboto'; font-size: 22px; fill: white; filter: url(#text-glow); }
+    .shadow {
+      font-family: 'Roboto';
+      font-size: 22px;
+      fill: white;
+      stroke: black;
+      stroke-width: 0.5; /* Adjust stroke-width as needed */
+      paint-order: stroke fill;
+      filter: url(#text-glow)
+    }
     .background { fill: black; }
   </style>
   <!-- Define the filter for the white text glow effect -->
