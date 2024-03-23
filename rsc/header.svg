@@ -13,19 +13,18 @@
     .highlighted { font-family: 'Roboto Bold'; font-size: 22px; fill: white; }
     .normal, .shadow { font-family: 'Roboto'; font-size: 22px; }
     .normal { fill: black; }
-    .shadow { fill: white; filter: url(#text-glow); }
+    .shadow { font-family: 'Roboto'; font-size: 22px; fill: white; filter: url(#text-glow); }
     .background { fill: black; }
   </style>
   <!-- Define the filter for the white text glow effect -->
   <defs>
-    <filter id="text-glow" x="-50%" y="-50%" width="150%" height="150%">
-      <feFlood result="flood" flood-color="white" flood-opacity="1"></feFlood>
-      <feComposite in="flood" result="mask" in2="SourceGraphic" operator="in"></feComposite>
-      <feMorphology in="mask" result="dilated" operator="dilate" radius="2"></feMorphology>
-      <feGaussianBlur in="dilated" result="blurred" stdDeviation="0.1"></feGaussianBlur>
+    <filter id="text-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feFlood flood-color="white" flood-opacity="1" result="flood" /> <!-- Reduced opacity for less intensity -->
+      <feComposite in="flood" in2="SourceAlpha" operator="in" result="white-fill" />
+      <feGaussianBlur in="white-fill" stdDeviation="1" result="blurred" /> <!-- Reduced stdDeviation for less blur -->
       <feMerge>
-        <feMergeNode in="blurred"></feMergeNode>
-        <feMergeNode in="SourceGraphic"></feMergeNode>
+        <feMergeNode in="blurred" />
+        <feMergeNode in="SourceGraphic" />
       </feMerge>
     </filter>
   </defs>
