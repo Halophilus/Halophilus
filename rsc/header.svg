@@ -11,30 +11,41 @@
       font-weight: bold;
     }
     .highlighted { font-family: 'Roboto Bold'; font-size: 22px; fill: white; }
-    .normal { font-family: 'Roboto'; font-size: 22px; fill: black; }
-    .shadow { font-family: 'Roboto'; font-size: 22px; fill: white; }
+    .normal, .shadow { font-family: 'Roboto'; font-size: 22px; }
+    .normal { fill: black; }
+    .shadow { fill: white; filter: url(#text-glow); }
     .background { fill: black; }
   </style>
+  <!-- Define the filter for the white text glow effect -->
+  <defs>
+    <filter id="text-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feFlood result="flood" flood-color="white" flood-opacity="1"></feFlood>
+      <feComposite in="flood" result="mask" in2="SourceGraphic" operator="in"></feComposite>
+      <feMorphology in="mask" result="dilated" operator="dilate" radius="2"></feMorphology>
+      <feGaussianBlur in="dilated" result="blurred" stdDeviation="1.5"></feGaussianBlur>
+      <feMerge>
+        <feMergeNode in="blurred"></feMergeNode>
+        <feMergeNode in="SourceGraphic"></feMergeNode>
+      </feMerge>
+    </filter>
+  </defs>
 
   <!-- Adjusted width for "I AM A" rectangle -->
   <rect x="75" y="20" width="75" height="30" class="background"/>
   <text x="79" y="42" class="highlighted" text-anchor="start">I AM A</text>
+  <text x="155" y="42" class="shadow" text-anchor="start">Computer science graduate student at Northeastern University</text>
   <text x="155" y="42" class="normal" text-anchor="start">Computer science graduate student at Northeastern University</text>
-  <text x="156" y="43" class="shadow" class="background">Computer science graduate student at Northeastern University</text>
-  <text x="154" y="41" class="shadow" class="background">Computer science graduate student at Northeastern University</text>
 
   <!-- Increased width for "I USED TO BE A" rectangle -->
   <rect x="0" y="70" width="168" height="30" class="background"/>
   <text x="5" y="92" class="highlighted" text-anchor="start">I USED TO BE A</text>
+  <text x="175" y="92" class="shadow" text-anchor="start">Limb development and regeneration researcher at UMass Boston</text>
   <text x="175" y="92" class="normal" text-anchor="start">Limb development and regeneration researcher at UMass Boston</text>
-  <text x="176" y="93" class="shadow" class="background">Limb development and regeneration researcher at UMass Boston</text>
-  <text x="174" y="91" class="shadow" class="background">Limb development and regeneration researcher at UMass Boston</text>
 
   <!-- Increased width for "I LIKE" rectangle -->
   <rect x="186" y="120" width="74" height="30" class="background"/>
   <text x="190" y="142" class="highlighted" text-anchor="start">I LIKE</text>
+  <text x="266" y="142" class="shadow" text-anchor="start">Design, science, and embedded systems</text>
   <text x="266" y="142" class="normal" text-anchor="start">Design, science, and embedded systems</text>
-  <text x="267" y="143" class="shadow" class="background">Design, science, and embedded systems</text>
-  <text x="265" y="141" class="shadow" class="background">Design, science, and embedded systems</text>
 
 </svg>
